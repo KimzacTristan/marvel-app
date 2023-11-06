@@ -1,7 +1,6 @@
 module.exports = {
-    files: ["**/*.{html,css,js}"],
-    server: {
-      baseDir: "."
-    }
-  };
-  
+  files: ["**/*.{html,css,js,json}"],
+  server: {
+    baseDir: "./",
+  }
+};
