@@ -1,26 +1,15 @@
-import { useState } from "react";
-import { DetailCharacter } from "./DetailCharacter";
+import { Link } from "react-router-dom";
 
-export function CharactersList({ characters = []}) {
-  // use state to store the index of the selected character
-  const [selectedCharacter, setSelectedCharacter] = useState(0);
-
-  // handleOnClick is a function that will be called when the user clicks on a character
-  // it will receive the index of the character as a parameter
-  const handleOnClick = (index) => {
-    // set the index of the selected character
-    setSelectedCharacter(index);
-  };
-
-  return (
-    <>
-      <ul>
-        {characters.map((character, index) => (
-          <li key={character.id} onClick={() => handleOnClick(index)}>{character.name}</li>
-        ))}
-      </ul>
-      < br/>
-      <DetailCharacter character={characters[selectedCharacter]} />
-    </>
-  );
+export function CharactersList({ characters = [] }) {
+    return (
+        <ul id="characters">
+            {characters.map((character) => (
+                <li key={character.id}>
+                    <Link to={`/characters/${character.id}`}>
+                        {character.name}
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    );
 }
